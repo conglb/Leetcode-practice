@@ -11,4 +11,4 @@ class Solution:
         :type root: TreeNode
         :rtype: List[int]
         """
-        self.
+        self
