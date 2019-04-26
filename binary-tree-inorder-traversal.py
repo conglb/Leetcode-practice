@@ -1,22 +1,40 @@
-class Solution:
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        pos = {}
-        ans = 0
-        j = 0
-        for i in range(len(s)):
-            if s[i] in pos.keys():
-                j = pos[s[i]] + 1
-                pos[s[i]] = i
-            else:
-                pos[s[i]] = i
-            print (i, j)
-            ans = max(ans, i - j + 1)
-        return ans
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
-if __name__ == '__main__':
-    sol = Solution()
-    print(sol.lengthOfLongestSubstring('abba'))
+class Solution:
+    def leftBranch(self, root):
+        res = []
+        while root != None:
+            
+
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        s = []
+        res = []
+        while True:
+            if len(s) == 0:
+                u = root
+                while u != None:
+                    s.append(u)
+                    res.append(u.val)
+                    u = u.left
+                continue
+            else:
+                u = s.pop()
+            print(len(s))
+            v = u.right
+            if v != None:
+                while v != None:
+                    s.append(v)
+                    res.append(v.val)
+                    v = v.left
+            if len(s) == 0:
+                break
+        return res
